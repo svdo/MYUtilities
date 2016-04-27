@@ -15,7 +15,7 @@
 #include <termios.h>
 
 
-BOOL gMYWarnRaisesException;
+//BOOL gMYWarnRaisesException;
 
 
 NSString* LOC( NSString *key )     // Localized string lookup
@@ -42,7 +42,7 @@ typedef enum {
 
 
 int _gShouldLog = -1;
-BOOL (^MYLoggingCallback)(NSString* domain, NSString* message) = nil;
+//BOOL (^MYLoggingCallback)(NSString* domain, NSString* message) = nil;
 
 static MYLoggingTo sLoggingTo;
 static NSMutableSet *sEnabledDomains;
@@ -115,21 +115,21 @@ static void InitLogging()
 }
 
 
-BOOL EnableLog( BOOL enable )
-{
-    if( _gShouldLog == -1 )
-        InitLogging();
-    BOOL old = _gShouldLog != 0;
-    _gShouldLog = enable;
-    return old;
-}
+//BOOL EnableLog( BOOL enable )
+//{
+//    if( _gShouldLog == -1 )
+//        InitLogging();
+//    BOOL old = _gShouldLog != 0;
+//    _gShouldLog = enable;
+//    return old;
+//}
 
-BOOL _WillLogTo( NSString *domain )
-{
-    if( _gShouldLog == -1 )
-        InitLogging();
-    return _gShouldLog && (domain==nil || [sEnabledDomains containsObject: domain]);
-}
+//BOOL _WillLogTo( NSString *domain )
+//{
+//    if( _gShouldLog == -1 )
+//        InitLogging();
+//    return _gShouldLog && (domain==nil || [sEnabledDomains containsObject: domain]);
+//}
 
 BOOL _EnableLogTo( NSString *domain, BOOL enable )
 {
@@ -205,13 +205,13 @@ static void _Logv( NSString *prefix, NSString *msg, va_list args )
 }
 
 
-void AlwaysLog( NSString *msg, ... )
-{
-    va_list args;
-    va_start(args,msg);
-    _Logv(@"",msg,args);
-    va_end(args);
-}
+//void AlwaysLog( NSString *msg, ... )
+//{
+//    va_list args;
+//    va_start(args,msg);
+//    _Logv(@"",msg,args);
+//    va_end(args);
+//}
 
 
 void _Log( NSString *msg, ... )
